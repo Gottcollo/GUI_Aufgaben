@@ -8,8 +8,8 @@ root.title("Bildanzeige-Test")
 root.geometry("400x400")  
  
 
-bilddatei = "sera1.png"
-print(F'Aktuelles arbeitsverzeichnis', os.getcwd)
+bilddatei = "sera.png"
+print(F'Aktuelles arbeitsverzeichnis', os.getcwd())
 try:
     image = Image.open(bilddatei)
 

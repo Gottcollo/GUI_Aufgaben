@@ -7,7 +7,7 @@ root.title('Widgettraining3')
 root.geometry('400x400')
  
  
-image = Image.open('sera1.png').resize((300, 100))
+image = Image.open('sera.png').resize((300, 100))
 photo = ImageTk.PhotoImage(image)
  
  
