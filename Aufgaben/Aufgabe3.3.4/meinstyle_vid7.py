@@ -7,7 +7,7 @@ root.title('Widgettraining3')
 root.geometry('400x400')
  
  
-image = Image.open('Aufgaben/AufgabemitBilder/sera.png').resize((300, 300))#oderner struktur mit angeben
+image = Image.open('Aufgaben/AufgabemitBilder/serainfullsuit.png').resize((300, 300))#oderner struktur mit angeben
 photo = ImageTk.PhotoImage(image)
  
  
