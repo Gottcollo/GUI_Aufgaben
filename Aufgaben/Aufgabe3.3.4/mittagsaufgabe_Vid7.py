@@ -11,7 +11,7 @@ image = Image.open('sera.png')
 photo = ImageTk.PhotoImage(image)
 
 
-label1 = ttk.Label(root, image=photo)#keine text option gesetzt
+label1 = ttk.Label(root, image= photo)#keine text option gesetzt
 label1.pack()
 #label1.configure(text='Hello World') //mit configure einfach option nachgesetzt 
 label2 = ttk.Label(root, text='Worte')
