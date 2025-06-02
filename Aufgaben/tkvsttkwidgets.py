@@ -12,7 +12,7 @@ label2 = ttk.Label(root, text='Kleiner')#ttk haben "klassen" dann kann man nur e
 #dadurch changed das auf jedem widget das diese klasse nutzt
 label2.pack()
 
-button1 = ttk.Button(root, text='Klick')
-button1.pack(side='top', expand=True, fill='x')
+button1 = ttk.Button(root, text='Klick')#testbutton mit pack bewegung
+button1.pack(side='top', expand=True, fill='x')#expand nutzt die ganze nutzbare zeile und fill fühlt alles
 
 root.mainloop()
