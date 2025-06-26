@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from speichern import daten_speichern_json, daten_speichern_txt
+from speichern import daten_speichern_json, daten_speichern_txt, daten_laden_json
 
 def erstelle_widgets(root, einnahmen, ausgaben, aktualisiere_anzeige):
 
@@ -51,11 +51,20 @@ def erstelle_widgets(root, einnahmen, ausgaben, aktualisiere_anzeige):
             messagebox.showinfo('Erfolg', 'Daten erfolgreich gespeichert als TXT.')
         else:
             messagebox.showerror('Fehler')
+    def laden_json():
+        geladen_einnahmen, geladen_ausgaben = daten_laden_json()
+        einnahmen.clear()
+        einnahmen.extend(geladen_einnahmen)
+        ausgaben.clear()
+        ausgaben.extend(geladen_ausgaben)
+        aktualisiere_anzeige(textfeld, einnahmen, ausgaben)
+        messagebox.showinfo('Erfolg, Daten geladen')
 
-    
     tk.Button(root, text='Einnahme hinzufügen', command=einnahme_hinzufuegen).grid(row=2, column=0, padx=5, pady=5)
     tk.Button(root, text='Ausgabe hinzufügen', command=ausgabe_hinzufuegen).grid(row=2, column=1, padx=5, pady=5)
     tk.Button(root, text='Als JSON speichern', command=speichern_json).grid(row=3, column=0, padx=5, pady=5)
     tk.Button(root, text='Als TXT speichern', command=speichern_txt).grid(row=3, column=1, padx=5, pady=5)
+    tk.Button(root, text='Daten Laden', command=laden_json).grid(row=5, column=0, columnspan=2, padx=5, pady=5)
+
 
     return textfeld
