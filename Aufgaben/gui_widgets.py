@@ -8,7 +8,7 @@ def erstelle_widgets(root, einnahmen, ausgaben, aktualisiere_anzeige):
     beschreibung_var = tk.StringVar()
     kategorie_entry = tk.Entry(root)
 
-    tk.Label(root, text='Kategorie:').grid(row=2, column=0, sticky='e')
+    tk.Label(root, text='Kategorie:').grid(row=2, column=0, padx=5, pady=5)
     kategorie_entry.grid(row=2, column=1, padx=5, pady=5)
 
     tk.Label(root, text='Betrag in Euro: ').grid(row=0, column=0, padx=5, pady=5)
