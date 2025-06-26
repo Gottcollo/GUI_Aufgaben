@@ -17,7 +17,7 @@ def aktualisiere_anzeige(textfeld, einnahmen, ausgaben):
     textfeld.insert(tk.END, f"Saldo:     {saldo:.2f} €\n")
 
     if saldo < 0:
-        textfeld.insert(tk.END, "⚠️ Achtung: Budget überschritten!\n")
+        textfeld.insert(tk.END, "Budget Überschritten. WARNUNG!\n")
 
     textfeld.insert(tk.END, "\n--- Alle Einträge ---\n")
     
