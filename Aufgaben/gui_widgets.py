@@ -6,12 +6,18 @@ def erstelle_widgets(root, einnahmen, ausgaben, aktualisiere_anzeige):
 
     betrag_var = tk.StringVar()
     beschreibung_var = tk.StringVar()
+    kategorie_entry = tk.Entry(root)
+
+    tk.Label(root, text='Kategorie:').grid(row=2, column=0, sticky='e')
+    kategorie_entry.grid(row=2, column=1, padx=5, pady=5)
 
     tk.Label(root, text='Betrag in Euro: ').grid(row=0, column=0, padx=5, pady=5)
-    tk.Entry(root, textvariable=betrag_var).grid(row=0, column=1, padx=5, pady=5)
+    betrag_entry = tk.Entry(root, textvariable=betrag_var)
+    betrag_entry.grid(row=0, column=1, padx=5, pady=5)
 
     tk.Label(root, text='Beschreibung: ').grid(row=1, column=0, padx=5, pady=5)
-    tk.Entry(root, textvariable=beschreibung_var).grid(row=1, column=1, padx=5, pady=5)
+    beschreibung_entry = tk.Entry(root, textvariable=beschreibung_var)
+    beschreibung_entry.grid(row=1, column=1, padx=5, pady=5)
 
     textfeld = tk.Text(root, height=10, width=50)
     textfeld.grid(row=4, column=0, columnspan=2, padx=5, pady=5, sticky='nsew')
@@ -23,20 +29,30 @@ def erstelle_widgets(root, einnahmen, ausgaben, aktualisiere_anzeige):
     def einnahme_hinzufuegen():
         try:
             betrag = float(betrag_var.get())
+            beschreibung = beschreibung_entry.get()
+            kategorie = kategorie_entry.get() or 'Allgemein'
             if betrag <= 0:
                 raise ValueError('Betrag muss positiv sein.')
-            einnahmen.append((betrag, beschreibung_var.get()))
+            einnahmen.append((betrag, beschreibung_var.get(), kategorie))
             aktualisiere_anzeige(textfeld, einnahmen, ausgaben)
+            betrag_entry.delete(0, tk.END)
+            beschreibung_entry.delete(0, tk.END)
+            kategorie_entry.delete(0, tk.END)
         except ValueError:
             messagebox.showerror('Fail, einen positiven Betrag eingeben')
 
     def ausgabe_hinzufuegen():
         try:
             betrag = float(betrag_var.get())
+            beschreibung = beschreibung_entry.get()
+            kategorie = kategorie_entry.get() or 'Allgemein'
             if betrag <= 0:
                 raise ValueError('Betrag muss positiv sein.')
-            ausgaben.append((betrag, beschreibung_var.get()))
+            ausgaben.append((betrag, beschreibung_var.get(), kategorie))
             aktualisiere_anzeige(textfeld, einnahmen, ausgaben)
+            betrag_entry.delete(0, tk.END)
+            beschreibung_entry.delete(0, tk.END)
+            kategorie_entry.delete(0, tk.END)
         except ValueError:
             messagebox.showerror('Fail, einen positiven Betrag eingeben')
 
@@ -51,6 +67,7 @@ def erstelle_widgets(root, einnahmen, ausgaben, aktualisiere_anzeige):
             messagebox.showinfo('Erfolg', 'Daten erfolgreich gespeichert als TXT.')
         else:
             messagebox.showerror('Fehler')
+
     def laden_json():
         geladen_einnahmen, geladen_ausgaben = daten_laden_json()
         einnahmen.clear()

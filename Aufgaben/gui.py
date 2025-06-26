@@ -24,12 +24,12 @@ def aktualisiere_anzeige(textfeld, einnahmen, ausgaben):
     if einnahmen:
         textfeld.insert(tk.END, "\nEinnahmen:\n")
         for betrag, beschreibung in einnahmen:
-            textfeld.insert(tk.END, f"  [+] {betrag:8.2f} €  –  {beschreibung}\n")
+            textfeld.insert(tk.END, f"  [+] {betrag:8.2f} €  –  {beschreibung} ({kategorie}\n")
 
     if ausgaben:
         textfeld.insert(tk.END, "\nAusgaben:\n")
         for betrag, beschreibung in ausgaben:
-            textfeld.insert(tk.END, f"  [-] {betrag:8.2f} €  –  {beschreibung}\n")
+            textfeld.insert(tk.END, f"  [-] {betrag:8.2f} €  –  {beschreibung} ({kategorie})\n")
 
 
 def starte_gui():
