@@ -77,11 +77,13 @@ def erstelle_widgets(root, einnahmen, ausgaben, aktualisiere_anzeige):
         aktualisiere_anzeige(textfeld, einnahmen, ausgaben)
         messagebox.showinfo('Erfolg, Daten geladen')
 
-    tk.Button(root, text='Einnahme hinzufügen', command=einnahme_hinzufuegen).grid(row=2, column=0, padx=5, pady=5)
-    tk.Button(root, text='Ausgabe hinzufügen', command=ausgabe_hinzufuegen).grid(row=2, column=1, padx=5, pady=5)
-    tk.Button(root, text='Als JSON speichern', command=speichern_json).grid(row=3, column=0, padx=5, pady=5)
-    tk.Button(root, text='Als TXT speichern', command=speichern_txt).grid(row=3, column=1, padx=5, pady=5)
-    tk.Button(root, text='Daten Laden', command=laden_json).grid(row=5, column=0, columnspan=2, padx=5, pady=5)
+    tk.Button(root, text='Einnahme hinzufügen', command=einnahme_hinzufuegen).grid(row=3, column=0, padx=5, pady=5)
+    tk.Button(root, text='Ausgabe hinzufügen', command=ausgabe_hinzufuegen).grid(row=3, column=1, padx=5, pady=5)
+    tk.Button(root, text='Als JSON speichern', command=speichern_json).grid(row=4, column=0, padx=5, pady=5)
+    tk.Button(root, text='Als TXT speichern', command=speichern_txt).grid(row=4, column=1, padx=5, pady=5)
+
+    textfeld.grid(row=5, column=0, columnspan=2, padx=5, pady=5, sticky='nsew')
+    tk.Button(root, text='Daten Laden', command=laden_json).grid(row=6, column=0, columnspan=2, padx=5, pady=5)
 
 
     return textfeld
